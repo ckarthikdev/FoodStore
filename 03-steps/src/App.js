@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Step_Counter from "./challenge/Step_counter";
 
 const messages = [
   "Learn React ⚛️",
@@ -13,17 +14,26 @@ function App() {
 
   function handlePrevious() {
     console.log("previous");
-    if (step > 1) setStep(step - 1);
+    if (step > 1) setStep((s) => s - 1);
   }
 
   function handleNext() {
     console.log("Next");
-    if (step < messages.length) setStep(step + 1);
+    if (step < messages.length) setStep((s) => s + 1);
   }
+
+  // If we want to update the state based on current value we need to pass Call-back fn in setStep()
+  // if(step < 3) {
+  //    setStep(step + 1);
+  //    setStep(step + 1); // It will add 1 on every click. It means state was not update with current state.
+  //}
 
   return (
     <div>
-      <button className="close" onClick={() => setIsOpen(!isOpen)}>
+      <button
+        className="close"
+        onClick={() => setIsOpen((curState) => !curState)}
+      >
         &times;
       </button>
       {isOpen && (
@@ -53,6 +63,7 @@ function App() {
           </div>
         </div>
       )}
+      <Step_Counter />
     </div>
   );
 }
