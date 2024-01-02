@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Step_Counter from "./challenge/Step_counter";
+import StepCounter from "./challenge/StepCounter";
 
 const messages = [
   "Learn React ⚛️",
@@ -63,7 +63,7 @@ function App() {
           </div>
         </div>
       )}
-      <Step_Counter />
+      <StepCounter />
     </div>
   );
 }
